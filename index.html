@@ -11,30 +11,30 @@
 
 <body>
     <h1>Test</h1>
-    <section>
-        <form class="add-form">
-            <label for="name-value">Name/Value Pair</label>
-            <div class="label-input-wrapper">
-                <input id="nameValue" type="text" name="name-value" placeholder="Name=Value" autofocus />
-                <button type="submit" class="button">Add</button>
-            </div>
-        </form>
-    </section>
 
-    <section>
-        <form class="edit-form">
-            <label for="pair-list">Name/Value Pair</label>
-            <div class="list-btn-wrapper">
-                <textarea name="pair-list" rows="3" cols="20" disabled></textarea>
-                <div class="button-wrapper">
-                    <button type="button" class="button">Sort by Name</button>
-                    <button type="button" class="button">Sort by Value</button>
-                    <button type="button" class="button">Delete</button>
-                    <button type="button" class="button">Show XML</button>
-                </div>
+    <form class="add-form">
+        <label for="name-val">Name/Value Pair</label>
+        <div class="label-input-wrapper">
+            <input class="add-form-input" type="text" id="name-val" name="name-val" placeholder="Name=Value"
+                autofocus />
+            <button type="submit" class="button">Add</button>
+        </div>
+    </form>
+
+    <form class="edit-form">
+        <label for="pair-list">Name/Value Pair list</label>
+        <div class="list-btn-wrapper">
+            <textarea class="edit-form-text-area" id="pair-list" name="pair-list" rows="3" cols="20"></textarea>
+            <div class="button-wrapper">
+                <button type="button" class="button edit-form-btn-sort-name" disabled>Sort by Name</button>
+                <button type="button" class="button edit-form-btn-sort-value" disabled>Sort by Value</button>
+                <button type="button" class="button edit-form-btn-del" disabled>Delete</button>
+                <button type="button" class="button edit-form-btn-show">Show XML</button>
             </div>
-        </form>
-    </section>
+        </div>
+    </form>
+
+    <script src="./js/index.js" type="module"></script>
 </body>
 
 </html>

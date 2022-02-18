@@ -40,6 +40,13 @@ button:focus {
   background-color: seagreen;
 }
 
+button:disabled {
+  background-color: transparent;
+  color: gray;
+  border-color: gray;
+  cursor: not-allowed;
+}
+
 .button-wrapper {
   display: flex;
   flex-wrap: wrap;
