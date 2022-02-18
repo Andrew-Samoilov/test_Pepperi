@@ -1,4 +1,4 @@
-console.log(`777`);
+// console.log(`777`);
 const addForm = document.querySelector('.add-form');
 const addFormInput = document.querySelector('.add-form-input');
 const pairListTextArea = document.querySelector('.edit-form-text-area');
@@ -33,22 +33,25 @@ function onPairListChange() {
 }
 
 function onAddFormSubmit(e) {
-    e.preventDefault();
-    // console.log(` func onAddFormSubmit`, addFormInput.value);
-    addToList(addFormInput.value);
-    onPairListChange();
-    renderForm();
-}
-
-function addToList(listItemToAdd) {
-    console.log(` func addToList`, listItemToAdd);
+    e.preventDefault();    // console.log(` func onAddFormSubmit`, addFormInput.value);
     //simple error catching , double '=' or any errors not check
-    if (!listItemToAdd) return;
-    if (listItemToAdd.includes('=') === false) {
+    if (!addFormInput.value) {
+        console.log(` ! error - no input`);
+        return;
+    };
+    if (addFormInput.value.includes('=') === false) {
         console.log(` ! error no '='`);
         return;
     };
 
+    addToList(addFormInput.value);
+    onPairListChange();
+    renderForm();
+    addFormInput.value = '';
+}
+
+function addToList(listItemToAdd) {
+    console.log(` func addToList`, listItemToAdd);
 
     const itemToAdd = {
         name: listItemToAdd.split('=')[0].trim(),
@@ -62,8 +65,7 @@ function renderForm() {
     let textToScreen = [];
     for (let index = 0; index < resArr.length; index++) {
         textToScreen.push(`${resArr[index].name} = ${resArr[index].value}`);
-    }
-    // console.log(`textToScreen`, textToScreen.join('\n'));
+    }    // console.log(`textToScreen`, textToScreen.join('\n'));
     pairListTextArea.value = textToScreen.join('\n');
 }
 
@@ -80,19 +82,16 @@ function onSortValue() {
 }
 
 function onDel() {
-    let position = pairListTextArea.selectionStart;
-    // console.log(`func onDel, position=`, position);
-
+    let position = pairListTextArea.selectionStart;    // console.log(`func onDel, position=`, position);
     let tmpSum = 0;
     for (let index = 0; index < resArr.length; index++) {
-        tmpSum += resArr[index].name.length + 3 + resArr[index].value.length;
-        // console.log(`tmpSum`, tmpSum);
-        if (position <= tmpSum) {
-            // console.log('delete this');
+        tmpSum += resArr[index].name.length + 3 + resArr[index].value.length; // console.log(`tmpSum`, tmpSum);
+        if (position <= tmpSum) {   // console.log('delete this elemet');
             resArr.splice(index, 1);
             break;
         }
     }
+    onPairListChange();
     renderForm();
 }
 
