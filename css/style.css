@@ -3,13 +3,16 @@ body {
   line-height: 1.5;
   color: #2a2a2a;
 }
+h1 {
+  margin-left: 1em;
+}
 
-input {
+input,
+textarea {
   padding: 0.5em;
   margin: 0.25em;
   min-width: 17em;
   font-family: inherit;
-
   border-radius: 0.25em;
   border: thin solid mediumseagreen;
 }
@@ -17,25 +20,19 @@ input {
 label {
   padding: 0.5em;
   margin: 0.25em;
-  display: flex;
-  flex-direction: column;
-}
-.add-form {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 button {
-  display: inline-flex;
   padding: 0.5em 2em;
   margin: 0.25em;
-  border: none;
+  border: thin solid mediumseagreen;
   border-radius: 0.25em;
   background-color: mediumseagreen;
   color: #fff;
   font-size: inherit;
   cursor: pointer;
-  align-items: center;
+  height: 2em;
+  min-width: 11em;
 }
 
 button:hover,
@@ -43,18 +40,19 @@ button:focus {
   background-color: seagreen;
 }
 
-.pair-list {
-  border-radius: 0.25em;
-  /* background-color: mediumseagreen; */
-  min-width: 15em;
-  min-height: 5em;
-  border: thin solid mediumseagreen;
-}
 .button-wrapper {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
+.label-input-wrapper,
 .list-btn-wrapper {
   display: flex;
+}
+
+@media (max-width: 480px) {
+  .label-input-wrapper,
+  .list-btn-wrapper {
+    flex-direction: column;
+  }
 }

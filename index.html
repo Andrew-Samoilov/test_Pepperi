@@ -13,25 +13,27 @@
     <h1>Test</h1>
     <section>
         <form class="add-form">
+            <label for="name-value">Name/Value Pair</label>
             <div class="label-input-wrapper">
-                <label for="nameValue">Name/Value Pair</label>
-                <input id="nameValue" type="text" name="nameValue" placeholder="Name=Value" autofocus />
+                <input id="nameValue" type="text" name="name-value" placeholder="Name=Value" autofocus />
+                <button type="submit" class="button">Add</button>
             </div>
-            <button type="submit">Add</button>
         </form>
     </section>
 
     <section>
-        <p class="list-label">Name / Value Pair List</p>
-        <div class="list-btn-wrapper">
-            <div class="pair-list"></div>
-            <div class="button-wrapper">
-                <button type="button" class="button">Sort by Name</button>
-                <button type="button" class="button">Sort by Value</button>
-                <button type="button" class="button">Delete</button>
-                <button type="button" class="button">Show XML</button>
+        <form class="edit-form">
+            <label for="pair-list">Name/Value Pair</label>
+            <div class="list-btn-wrapper">
+                <textarea name="pair-list" rows="3" cols="20" disabled></textarea>
+                <div class="button-wrapper">
+                    <button type="button" class="button">Sort by Name</button>
+                    <button type="button" class="button">Sort by Value</button>
+                    <button type="button" class="button">Delete</button>
+                    <button type="button" class="button">Show XML</button>
+                </div>
             </div>
-        </div>
+        </form>
     </section>
 </body>
 
