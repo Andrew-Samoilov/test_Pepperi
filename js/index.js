@@ -2,10 +2,10 @@
 const addForm = document.querySelector('.add-form');
 const addFormInput = document.querySelector('.add-form-input');
 const pairListTextArea = document.querySelector('.edit-form-text-area');
-const editFormBtnSortName = document.querySelector('.edit-form-btn-sort-name');
-const editFormBtnSortValue = document.querySelector('.edit-form-btn-sort-value');
-const editFormBtnDel = document.querySelector('.edit-form-btn-del');
-const editFormBtnShow = document.querySelector('.edit-form-btn-show');
+const editFormBtnSortName = document.querySelector('.btn-sort-name');
+const editFormBtnSortValue = document.querySelector('.btn-sort-value');
+const editFormBtnDel = document.querySelector('.btn-del');
+const editFormBtnShow = document.querySelector('.btn-show');
 
 let resArr = [];
 addForm.addEventListener('submit', onAddFormSubmit);
