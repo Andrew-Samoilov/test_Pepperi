@@ -16,7 +16,7 @@ editFormBtnDel.addEventListener('click', onDel);
 editFormBtnShow.addEventListener('click', onShow);
 
 function onPairListChange() {
-    console.log('func onPairListChange', resArr);
+    // console.log('func onPairListChange', resArr);
     if (resArr.length === 0) {
         editFormBtnSortName.disabled = true;
         editFormBtnSortValue.disabled = true;
@@ -61,7 +61,7 @@ function addToList(listItemToAdd) {
 }
 
 function renderForm() {
-    console.log(` func renderForm`, ...resArr);
+    // console.log(` func renderForm`, ...resArr);
     let textToScreen = [];
     for (let index = 0; index < resArr.length; index++) {
         textToScreen.push(`${resArr[index].name} = ${resArr[index].value}`);
@@ -82,17 +82,30 @@ function onSortValue() {
 }
 
 function onDel() {
-    let position = pairListTextArea.selectionStart;    // console.log(`func onDel, position=`, position);
+    let position = pairListTextArea.selectionStart;
+    console.log(`func onDel, position=`, position);
+    let tmp = resArr.join('').length;
+    if (pairListTextArea.value.length <= position) {
+        alert(`set cursor iside text area`);
+        console.log(` ! error, set cursor iside text area pairListTextArea.value.length${pairListTextArea.value.length} <= position${position}`);
+
+        return;
+    }
+    console.log(`pairListTextArea.value`, pairListTextArea.value);
+    console.log(`pairListTextArea.value.len`, pairListTextArea.value.length);
     let tmpSum = 0;
     for (let index = 0; index < resArr.length; index++) {
-        tmpSum += resArr[index].name.length + 3 + resArr[index].value.length; // console.log(`tmpSum`, tmpSum);
-        if (position <= tmpSum) {   // console.log('delete this elemet');
+        tmpSum += resArr[index].name.length + 3 + resArr[index].value.length;
+        console.log(`index${index} tmpSum`, tmpSum);
+        if (position <= tmpSum) {
+            console.log('delete this elemet');
             resArr.splice(index, 1);
             break;
         }
     }
     onPairListChange();
     renderForm();
+    console.log(`resArr.join('').length`, resArr.join('').length, `resArr.join`, resArr.join(''));
 }
 
 function onShow() {
@@ -107,5 +120,6 @@ function onShow() {
     xmlToScreen.push('</list-of-pairs>');
 
     console.log(`xmlToScreen`, xmlToScreen.join('\n'));
+    console.log(`resArr.join('').length`, resArr.join('').length);
     alert(`${xmlToScreen.join('\n')}`);
 }
