@@ -1,2 +1,2 @@
-# test3_Pepperi
+# test_Pepperi
 Pepperi test task
